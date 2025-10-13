@@ -35,7 +35,25 @@ class Book extends Model
             'cover_photo' => 'naruto.jpg',
             'genre_id' => 3,
             'author_id' => 3
-        ]
+        ],
+        [
+            'title' => 'The Lord of the Rings',
+            'description' => 'A classic fantasy novel by J.R.R. Tolkien.',
+            'price' =>60000,
+            'stock' => 30,
+            'cover_photo' => 'the_lord_of_the_rings.jpg',
+            'genre_id' => 1,
+            'author_id' => 2
+        ],
+        [
+            'title' => 'The Hunger Games',
+            'description' => 'A dystopian novel by Suzanne Collins featuring survival and rebellion.',
+            'price' =>65000,
+            'stock' => 28,
+            'cover_photo' => 'the_hunger_games.jpg',
+            'genre_id' => 1,
+            'author_id' => 5
+        ],
     ];
 
     public function getBooks() {

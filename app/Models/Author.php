@@ -28,9 +28,9 @@ class Author extends Model
             'bio' => 'American author of horror, supernatural fiction, suspense, and fantasy novels.'
         ],
         [
-            'name' => 'Harper Lee',
-            'photo' => 'harper_lee.jpg',
-            'bio' => 'American novelist, best known for To Kill a Mockingbird.'
+            'name' => 'Suzanne Collins',
+            'photo' => 'suzanne_collins.jpg',
+            'bio' => 'American author, best known for The Hunger Games trilogy.'
         ]
     ];
 

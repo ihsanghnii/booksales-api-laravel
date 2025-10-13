@@ -19,6 +19,9 @@
                     {{ $item['title'] }}
                 </strong>
                 <p>
+                    {{ $item['cover_photo'] }}
+                </p>
+                <p>
                     {{ $item['description'] }}
                 </p>
                 <p>
