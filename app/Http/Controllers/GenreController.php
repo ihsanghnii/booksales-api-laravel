@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
     public function index() {
-        return view('genres');
+        $data = new Genre(); //membuat object
+        $genres = $data->getGenres(); //mengakses method getgenres
+
+        return view('genres', ['genres' => $genres]); // mengirim data buku ke view
     }
 }

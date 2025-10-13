@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Genres</title>
+    <title>Authors</title>
 </head>
 
 <body>
-    <h1>Daftar Genre Buku</h1>
+    <h1>Meet The Authors</h1>
+    <h4>the Minds Behind the Books</h4>
 
     <ol>
-        @foreach ($genres as $item)
+        @foreach ($authors as $item)
             <li>
                 <strong>
                     {{ $item['name'] }}
                 </strong>
-                <p>
-                    {{ $item['description'] }}
-                </p>
             </li>
+            <p>{{ $item['photo'] }}</p>
+            <p>{{ $item['bio'] }}</p>
         @endforeach
     </ol>
+
 </body>
 
 </html>
