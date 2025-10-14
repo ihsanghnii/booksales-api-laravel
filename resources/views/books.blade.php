@@ -13,22 +13,28 @@
     <p>Selamat datang di toko book sales!</p>
 
     <ol>
-        @foreach ($books as $item)
+        @foreach ($books as $book)
             <li>
                 <strong>
-                    {{ $item['title'] }}
+                    {{ $book['title'] }}
                 </strong>
                 <p>
-                    {{ $item['cover_photo'] }}
+                    {{ $book['cover_photo'] }}
                 </p>
                 <p>
-                    {{ $item['description'] }}
+                    {{ $book['description'] }}
                 </p>
                 <p>
-                    Harga : {{ $item['price'] }}
+                    Harga : {{ $book['price'] }}
                 </p>
                 <p>
-                    Stok : {{ $item['stock'] }}
+                    Stok : {{ $book['stock'] }}
+                </p>
+                <p>
+                    Genre : {{ $book->genre->name }}
+                </p>
+                <p>
+                    Author : {{ $book->author->name }}
                 </p>
             </li>
         @endforeach

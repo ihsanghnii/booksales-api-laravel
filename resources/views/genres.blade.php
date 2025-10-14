@@ -12,13 +12,13 @@
     <h1>Daftar Genre Buku</h1>
 
     <ol>
-        @foreach ($genres as $item)
+        @foreach ($genres as $genre)
             <li>
                 <strong>
-                    {{ $item['name'] }}
+                    {{ $genre['name'] }}
                 </strong>
                 <p>
-                    {{ $item['description'] }}
+                    {{ $genre['description'] }}
                 </p>
             </li>
         @endforeach

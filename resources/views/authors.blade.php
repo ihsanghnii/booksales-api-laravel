@@ -13,14 +13,14 @@
     <h4>the Minds Behind the Books</h4>
 
     <ol>
-        @foreach ($authors as $item)
+        @foreach ($authors as $author)
             <li>
                 <strong>
-                    {{ $item['name'] }}
+                    {{ $author['name'] }}
                 </strong>
             </li>
-            <p>{{ $item['photo'] }}</p>
-            <p>{{ $item['bio'] }}</p>
+            <p>{{ $author['photo'] }}</p>
+            <p>{{ $author['bio'] }}</p>
         @endforeach
     </ol>
 

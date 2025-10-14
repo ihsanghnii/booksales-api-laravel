@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 class GenreController extends Controller
 {
     public function index() {
-        $data = new Genre(); //membuat object
-        $genres = $data->getGenres(); //mengakses method getgenres
+        $genres = Genre::all();
+
+        // $data = new Genre(); //membuat object
+        // $genres = $data->getGenres(); //mengakses method getgenres
 
         return view('genres', ['genres' => $genres]); // mengirim data buku ke view
     }
