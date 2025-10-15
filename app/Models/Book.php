@@ -9,11 +9,13 @@ class Book extends Model
 {
     protected $table = 'books';
 
-    public function author():BelongsTo {
+    public function author(): BelongsTo
+    {
         return $this->belongsTo(Author::class);
     }
 
-    public function genre():BelongsTo {
+    public function genre(): BelongsTo
+    {
         return $this->belongsTo(Genre::class);
     }
 
