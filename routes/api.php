@@ -23,13 +23,15 @@ Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
 
 // controller dengan method store, update, dan destroy cuma bisa diakses setelah login
 Route::middleware(['auth:api'])->group(function () {
-    Route::apiResource('/transactions', TransactionController::class)->only(['index', 'store', 'show']);
+    Route::middleware(['role:customer'])->group(function() {
+        Route::apiResource('/transactions', TransactionController::class)->only(['store', 'update', 'show']);
+    });
     
     Route::middleware(['role:admin'])->group(function () {
         Route::apiResource('/books', BookController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/authors', BookController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/genres', BookController::class)->only(['store', 'update', 'destroy']);
-        Route::apiResource('/transactions', TransactionController::class)->only(['update', 'destroy']);
+        Route::apiResource('/transactions', TransactionController::class)->only(['index', 'destroy']);
     });
 
 });
