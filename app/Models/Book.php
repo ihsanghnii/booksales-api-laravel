@@ -19,15 +19,13 @@ class Book extends Model
         'author_id'
     ];
 
-    // public function author(): BelongsTo
-    // {
-    //     return $this->belongsTo(Author::class);
-    // }
+    public function genre() {
+        return $this->belongsTo(Genre::class);
+    }
 
-    // public function genre(): BelongsTo
-    // {
-    //     return $this->belongsTo(Genre::class);
-    // }
+    public function author() {
+        return $this->belongsTo(Author::class);
+    }
 
     // // array muldimentional
     // private $books = [

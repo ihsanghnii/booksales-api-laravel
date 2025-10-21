@@ -13,7 +13,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+        $books = Book::with('genre', 'author')->get();
 
         if ($books->isEmpty()) {
             return response()->json([
@@ -37,6 +37,24 @@ class BookController extends Controller
 
         // $data = new Book();
         // $books = $data->getBooks();
+    }
+
+    public function show(string $id)
+    {
+        $book = Book::with('genre', 'author')->find($id);
+
+        if (!$book) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Resource not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Get detail resource',
+            'data' => $book
+        ], 200);
     }
 
     public function store(Request $request)
@@ -84,24 +102,6 @@ class BookController extends Controller
             'message' => 'Resource added successfully',
             'data' => $book
         ], 201);
-    }
-
-    public function show(string $id)
-    {
-        $book = Book::find($id);
-
-        if (!$book) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Resource not found'
-            ], 404);
-        }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Get detail resource',
-            'data' => $book
-        ], 200);
     }
 
     public function update(string $id, Request $request)

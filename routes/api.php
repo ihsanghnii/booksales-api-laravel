@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +23,13 @@ Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
 
 // controller dengan method store, update, dan destroy cuma bisa diakses setelah login
 Route::middleware(['auth:api'])->group(function () {
-
+    Route::apiResource('/transactions', TransactionController::class)->only(['index', 'store', 'show']);
+    
     Route::middleware(['role:admin'])->group(function () {
         Route::apiResource('/books', BookController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/authors', BookController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/genres', BookController::class)->only(['store', 'update', 'destroy']);
+        Route::apiResource('/transactions', TransactionController::class)->only(['update', 'destroy']);
     });
 
 });
