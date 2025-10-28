@@ -22,7 +22,7 @@ Route::apiResource('/books', BookController::class)->only(['index', 'show']);
 Route::apiResource('/authors', AuthorController::class)->only(['index', 'show']);
 Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
 
-// controller dengan method store, update, dan destroy cuma bisa diakses setelah login
+// bisa diakses setelah login
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
     Route::apiResource('/transactions', TransactionController::class)->only(['store', 'show']);
