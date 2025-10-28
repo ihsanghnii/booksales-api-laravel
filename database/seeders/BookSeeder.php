@@ -14,11 +14,11 @@ class BookSeeder extends Seeder
     public function run(): void
     {
         Book::create([
-            'title' => 'Pulang',
-            'description' => 'petualangan seorang pemuda yang kembali ke desa kelahirannya',
+            'title' => 'harry potah',
+            'description' => 'petualangan seseorang',
             'price' => 40000,
             'stock' => 15,
-            'cover_photo' => 'pulang.jpg',
+            'cover_photo' => 'harry_poter.jpg',
             'genre_id' => 1,
             'author_id' => 1
         ]);
