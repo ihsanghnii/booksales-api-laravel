@@ -14,6 +14,8 @@ class User extends Authenticatable implements JWTSubject
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *

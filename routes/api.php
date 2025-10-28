@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,6 @@ Route::get('/user', function (Request $request) {
 // route auth
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-
 
 // bisa diakses tanpa login
 Route::apiResource('/books', BookController::class)->only(['index', 'show']);
@@ -32,6 +32,7 @@ Route::middleware(['auth:api'])->group(function () {
         Route::apiResource('/books', BookController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/authors', AuthorController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('/genres', GenreController::class)->only(['store', 'update', 'destroy']);
+        Route::apiResource('/users', UserController::class)->only(['index']);
     });
 
 });
